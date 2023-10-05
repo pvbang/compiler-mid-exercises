@@ -4,17 +4,29 @@ token_patterns = [
     (r'\b(?:while|if|else|return|break|continue|int|for|float|void)\b', 'keyword'),
     (r'\b[a-zA-Z_][a-zA-Z0-9_]*\b', 'identifier'),
     (r'-?[0-9]+(?:\.[0-9]+)?(?:[eE][-+]?[0-9]+)?', 'num'),
+
+    # (r'\+|-', 'addop'),
+    # (r'\*|/', 'mulop'),
+    # (r'<|>|<=|>=|==|!=', 'relop'),
+
     (r'\+', '+'),
     (r'-', '-'),
     (r'\*', '*'),
     (r'/', '/'),
     (r'=', '='),
+    (r'<', '<'),
+    (r'>', '>'),
+
+    (r'&&', 'and'),
+    (r'\|\|', 'or'),
+    (r'!', 'not'),
     (r';', ';'),
     (r'\(', '('),
     (r'\)', ')'),
     (r'{', '{'),
     (r'}', '}'),
-    (r'<', '<'),
+    (r'\[', '['),
+    (r'\]', ']'),
 ]
 
 def lexical_analysis(input_file):
