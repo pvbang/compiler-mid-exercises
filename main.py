@@ -3,7 +3,8 @@ import re
 token_patterns = [
     (r'\b(?:while|if|else|return|break|continue|int|for|float|void)\b', 'keyword'),
     (r'\b[a-zA-Z][a-zA-Z0-9_]*\b', 'identifier'),
-    (r'-?[0-9]+(?:\.[0-9]+)?(?:[eE][-+]?[0-9]+)?', 'num'),
+    (r'[0-9]+(\.[0-9]+)?(E[-+]?[0-9]+)?', 'num'),
+    # (r'-?[0-9]+(?:\.[0-9]+)?(?:[eE][-+]?[0-9]+)?', 'num'),
 
     # (r'\+|-', 'addop'),
     # (r'\*|/', 'mulop'),
