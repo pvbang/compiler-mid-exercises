@@ -1,33 +1,33 @@
 import re
 
 token_patterns = [
-    (r'\b(?:while|if|else|return|break|continue|int|for|float|void)\b', 'keyword'),
-    (r'\b[a-zA-Z][a-zA-Z0-9_]*\b', 'identifier'),
-    (r'[0-9]+(\.[0-9]+)?(E[-+]?[0-9]+)?', 'num'),
-    # (r'-?[0-9]+(?:\.[0-9]+)?(?:[eE][-+]?[0-9]+)?', 'num'),
+    ('while|if|else|return|break|continue|int|for|float|void', 'keyword'),
+    ('[a-zA-Z][a-zA-Z0-9_]*', 'identifier'),
+    ('[0-9]+(\.[0-9]+)?(E[-+]?[0-9]+)?', 'num'),
+    # ('-?[0-9]+(\.[0-9]+)?([eE][-+]?[0-9]+)?', 'num'),
 
-    # (r'\+|-', 'addop'),
-    # (r'\*|/', 'mulop'),
-    # (r'<|>|<=|>=|==|!=', 'relop'),
+    # ('\+|-', 'addop'),
+    # ('\*|/', 'mulop'),
+    # ('<|>|<=|>=|==|!=', 'relop'),
 
-    (r'\+', '+'),
-    (r'-', '-'),
-    (r'\*', '*'),
-    (r'/', '/'),
-    (r'=', '='),
-    (r'<', '<'),
-    (r'>', '>'),
+    ('\+', '+'),
+    ('-', '-'),
+    ('\*', '*'),
+    ('/', '/'),
+    ('=', '='),
+    ('<', '<'),
+    ('>', '>'),
 
-    (r'&&', 'and'),
-    (r'\|\|', 'or'),
-    (r'!', 'not'),
-    (r';', ';'),
-    (r'\(', '('),
-    (r'\)', ')'),
-    (r'{', '{'),
-    (r'}', '}'),
-    (r'\[', '['),
-    (r'\]', ']'),
+    ('&&', 'and'),
+    ('\|\|', 'or'),
+    ('!', 'not'),
+    (';', ';'),
+    ('\(', '('),
+    ('\)', ')'),
+    ('{', '{'),
+    ('}', '}'),
+    ('\[', '['),
+    ('\]', ']'),
 ]
 
 def lexical_analysis(input_file):
@@ -44,7 +44,8 @@ def lexical_analysis(input_file):
                 code = code[len(value):].strip()
                 break
         else:
-            error_match = re.match(r'.', code)
+            error_match = re.match('.', code)
+            print("error_match: ", error_match)
             if error_match:
                 value = error_match.group()
                 tokens.append(('Error', value))
